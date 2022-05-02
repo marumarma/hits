@@ -1,0 +1,26 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+vector<int> input(int count, vector<int>data = vector<int>()){
+    int currentData;
+    cin >> currentData;
+    data.push_back(currentData);
+    return data.size() == count ? data : input(count, data);
+}
+
+void createHistogram(vector<int>data, int countNum, int counter, vector<int>visited = vector<int>()) {
+    int currentCount = count(begin(data), end(data), data[counter]);
+    count(begin(visited), end(visited), data[counter]) == 0 ? cout << data[counter] << " " << currentCount << endl : cout << "";
+    visited.push_back(data[counter]);
+    return (counter + 1 == countNum) ? void() : createHistogram(data, countNum, counter + 1, visited);
+}
+
+int main()
+{
+    int count;
+    cin >> count;
+    vector<int>data = input(count);
+    createHistogram(data, count, 0);
+}
